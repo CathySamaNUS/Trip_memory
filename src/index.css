@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+  }
+  body {
+    @apply font-scrap text-ink bg-paper antialiased;
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-3 rounded-2xl
+           bg-white/80 border border-beige-200 shadow-sticker
+           hover:bg-white hover:-translate-y-0.5 active:translate-y-0
+           transition-all text-ink font-semibold;
+  }
+  .btn-primary {
+    @apply btn bg-sunny/90 hover:bg-sunny border-sunny;
+  }
+  .btn-soft {
+    @apply btn bg-rose/70 hover:bg-rose border-rose;
+  }
+  .card {
+    @apply bg-white/85 backdrop-blur rounded-3xl border border-beige-200
+           shadow-sticker p-4;
+  }
+  .stamp {
+    @apply absolute -top-2 -right-2 rotate-12 px-2 py-1 rounded-md
+           border-2 border-rose text-rose bg-white/80 text-xs font-bold tracking-wider;
+  }
+  .pin-tape {
+    content: '';
+    @apply block absolute -top-3 left-1/2 -translate-x-1/2 w-12 h-4
+           bg-sunny/70 rounded-sm rotate-[-4deg] shadow-sm;
+  }
+}
+
+/* Tape decoration helper */
+.tape-top::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-4deg);
+  width: 64px;
+  height: 14px;
+  background: rgba(247, 215, 116, 0.7);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* Subtle paper grain */
+.paper-grain {
+  background-image:
+    radial-gradient(rgba(92,74,58,0.05) 1px, transparent 1px),
+    radial-gradient(rgba(92,74,58,0.04) 1px, transparent 1px);
+  background-size: 24px 24px, 32px 32px;
+  background-position: 0 0, 12px 16px;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.7); opacity: 0; }
+  60% { transform: scale(1.08); opacity: 1; }
+  100% { transform: scale(1); }
+}
+.animate-pop { animation: pop 0.45s ease-out both; }
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-floaty { animation: floaty 2.6s ease-in-out infinite; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fadeIn { animation: fadeIn 0.4s ease-out both; }
