@@ -1,4 +1,4 @@
-# Return to Taiwan 🗺️
+# Trip Memory 🗺️
 
 An interactive travel-scrapbook MVP. Click locations on a stylized Taiwan map, walk through a fixed timeline of memories, tap NPCs / animals / objects to trigger narration or dialogue, collect souvenirs, and unlock photo groups in your album.
 
